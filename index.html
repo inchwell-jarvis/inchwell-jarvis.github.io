@@ -11,7 +11,13 @@
         * {
             padding: 0;
             margin: 0;
-            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: 'HanYiXiJianHeiJian';
+            src: url('./font/HanYiXiJianHeiJian-1.ttf') format('woff2');
+            font-weight: normal;
+            font-style: normal;
         }
 
         /* 设定基本样式和字体 */
@@ -54,6 +60,7 @@
             animation: fadeIn 2s ease-in-out 0.4s forwards;
             opacity: 0;
             transform: scale(1.125);
+            transition: 0.4s;
         }
 
         @keyframes fadeIn {
@@ -303,16 +310,56 @@
             }
         }
 
-        #avatar img{
+        #avatar img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             filter: brightness(70%);
         }
+
+
+        .pop {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 0;
+            opacity: 0;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .pop_content {
+            width: 800px;
+            height: 1000px;
+            background: #1b1f22d9;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 6px;
+            background-image: linear-gradient(to top, rgb(19 21 25 / 44%), rgb(19 21 25 / 33%)), url('./images/overlay.png');
+            background-size: auto, 256px 256px;
+            background-position: center;
+            padding: 30px;
+            box-sizing: border-box;
+            color: #ffffff;
+            pointer-events: none;
+            font-family: 'HanYiXiJianHeiJian';
+            line-height: 40px;
+            overflow: auto;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- background -->
+    <div id="background"></div>
+
+
 
     <div class="content-box">
         <div class="name">Jarvis Downey</div>
@@ -327,10 +374,10 @@
     <div id="but">
         <!-- line -->
         <div class="line"></div>
-        <div class="but_an">INTRO</div>
-        <div class="but_an">BLOG</div>
-        <div class="but_an">ABOUT</div>
-        <div class="but_an">HELP</div>
+        <div class="but_an" onclick="but_an_fun('INTRO')">INTRO</div>
+        <div class="but_an" onclick="but_an_fun('BLOG')">BLOG</div>
+        <div class="but_an" onclick="but_an_fun('ABOUT')">ABOUT</div>
+        <div class="but_an" onclick="but_an_fun('HELP')">HELP</div>
     </div>
 
 
@@ -341,11 +388,64 @@
         <img src="./images/2020-12-12 204303-2.jpg" alt="">
     </div>
 
+
+    <!-- written-attribution -->
     <p class="written-attribution">THIS WEBSITE IS WRITTEN BY MR. JARVIS DOWNEY</p>
 
 
-    <div id="background"></div>
+    <!-- pop -->
+    <div class="pop" onclick="close_pop()">
+        <div class="pop_content">
+            <!-- <h3 style="font-size: 30px;line-height: 80px;">月光下的花园，静谧而神秘，</h3> -->
+            <img src="./images/{5419A7FE-B04D-48dd-8D0B-609289EB8F48}.png" alt="" style="width: 500px;">
+
+            <br><br>
+
+            <p>月光下的花园，静谧而神秘，</p>
+            <p>你我相拥在这片宁静的天地。</p>
+            <p>如同夜空中的星星闪烁，</p>
+            <p>你的眼睛是我心中的灯塔。</p>
+
+            <p>你的笑声如溪水般潺潺，</p>
+            <p>轻拂过我心头的涟漪。</p>
+            <p>如同晨曦中的露珠晶莹，</p>
+            <p>你的嘴唇是我渴望的甘露。</p>
+
+            <p>我们的影子在月光下交织，</p>
+            <p>如同藤蔓缠绕在树干上。</p>
+            <p>如同蝴蝶翩翩起舞，</p>
+            <p>我们的爱恋在这夜色中绽放。</p>
+
+            <p>愿我们的爱情如同月亮，</p>
+            <p>永远圆满，永不分离。</p>
+            <p>愿我们的心灵如同花朵，</p>
+            <p>在这月光下，共同成长。</p>
+        </div>
+    </div>
+
+
 
 </body>
+<script>
+    function but_an_fun(string) {
+        const pop = document.getElementsByClassName('pop')[0]
+        const background = document.getElementById('background')
+
+        pop.style.zIndex = '90'
+        pop.style.opacity = '1'
+        background.style.transform = 'scale(1)'
+    }
+
+    function close_pop() {
+        const pop = document.getElementsByClassName('pop')[0]
+        const background = document.getElementById('background')
+
+        pop.style.zIndex = '0'
+        pop.style.opacity = '0'
+        background.style.transform = 'scale(1.125)'
+    }
+
+
+</script>
 
 </html>
