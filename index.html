@@ -1,1 +1,178 @@
-<!DOCTYPE html><html lang=en><head><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=renderer content=webkit><meta name=force-rendering content=webkit><meta http-equiv=X-UA-Compatible content="IE=Edge,chrome=1"><meta charset=utf-8><title>英之杰天祥综合管理平台</title><link rel="shortcut icon" href=./favicon.png><link href=./static/css/app.071ddb84147ec6c8a9857e7122e5242e.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.80d41dc836b2f93fbbc3.js></script><script type=text/javascript src=./static/js/vendor.a4e515519e4fd7bf808f.js></script><script type=text/javascript src=./static/js/app.f6edceededf100531ee2.js></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./images/icon.png">
+    <title>Jarvis Downey</title>
+    <style>
+        /* 重置所有元素的默认边距和填充 */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* 设定基本样式和字体 */
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            font-family: 'Source Sans', sans-serif;
+            /* 设置默认字体 */
+        }
+
+        /* 定义字体使用 @font-face */
+        @font-face {
+            font-family: 'Source Sans Pro';
+            src: url('./font/6xKydSBYKcSV-LCoeQqfX1RYOo3i54rwlxdu.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Source Sans';
+            src: url('./font/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* 背景样式 */
+        #background {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 1;
+            background-image: url('./images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: fadeIn 2s ease-in-out 0.4s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* 叠加样式 */
+        #background:before,
+        #background:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to top, rgb(19 21 25 / 44%), rgb(19 21 25 / 33%)), url('./images/overlay.png');
+            background-size: auto, 256px 256px;
+            background-position: center;
+            z-index: 2;
+        }
+
+        /* 内容盒子样式 */
+        .content-box {
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border-top: 0.5px solid #ffffff;
+            border-bottom: 0.5px solid #ffffff;
+            z-index: 10;
+            animation: expandHeight 1.5s ease-in-out 0.4s forwards;
+            overflow: hidden;
+            color: #ffffff;
+        }
+
+        @keyframes expandHeight {
+            0% {
+                height: 0;
+            }
+
+            50% {
+                width: 800px;
+                height: 0;
+            }
+
+            100% {
+                height: 260px;
+                width: 800px;
+            }
+        }
+
+        /* 姓名样式 */
+        .name {
+            width: 100%;
+            height: 50%;
+            font-size: 50px;
+            text-align: center;
+            line-height: 130px;
+            font-family: "Source Sans Pro", sans-serif;
+        }
+
+        /* 文本样式 */
+        .description {
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            line-height: 50px;
+            font-size: 16px;
+            letter-spacing: 0.2rem;
+        }
+
+        /* 版权声明样式 */
+        .written-attribution {
+            width: 100%;
+            position: fixed;
+            bottom: 20px;
+            color: #ffffff80;
+            z-index: 10;
+            opacity: 0;
+            text-align: center;
+            animation: writtenFrames 2s ease-in-out 0.4s forwards;
+        }
+
+        @keyframes writtenFrames {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="background"></div>
+
+    <div class="content-box">
+        <div class="name">Jarvis Downey</div>
+        <div class="description">
+            <p>IT TAKES TIME FOR SOUND TO TRAVEL.</p>
+            <p>WE TALKED FACE TO FACE, I AM IN THE PAST, AND YOU ARE IN THE FUTURE.</p>
+        </div>
+    </div>
+
+    <p class="written-attribution">This website is written by Mr. Jarvis Downey</p>
+</body>
+
+</html>
